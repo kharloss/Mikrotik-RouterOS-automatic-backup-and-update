@@ -8,7 +8,6 @@
 # Updated: 17/04/2020
 # Author:  Alexander Tebiev
 # Website: https://github.com/beeyev
-# You can contact me by e-mail at tebiev@mail.com
 #
 # IMPORTANT!
 # Minimum supported RouterOS version is v6.43.7
@@ -16,7 +15,7 @@
 #----------MODIFY THIS SECTION AS NEEDED----------------------------------------
 ## Notification e-mail
 ## (Make sure you have configurated Email settings in Tools -> Email)
-:local emailAddress "yourmail@example.com";
+:local emailAddress "adi@trady.ro";
 
 ## Script mode, possible values: backup, osupdate, osnotify.
 # backup 	- 	Only backup will be performed. (default value, if none provided)
@@ -28,7 +27,7 @@
 #
 # osnotify 	- 	The script will send email notification only (without backups) if a new RouterOS is available.
 #				Change parameter `forceBackup` if you need the script to create backups every time when it runs.
-:local scriptMode "backup";
+:local scriptMode "osupdate";
 
 ## Additional parameter if you set `scriptMode` to `osupdate` or `osnotify`
 # Set `true` if you want the script to perform backup every time it's fired, whatever script mode is set.
