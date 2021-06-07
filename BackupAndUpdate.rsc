@@ -3,9 +3,9 @@
 #----------SCRIPT INFORMATION---------------------------------------------------
 #
 # Script:  Mikrotik RouterOS automatic backup & update
-# Version: 20.04.17
+# Version: 21.03.30
 # Created: 07/08/2018
-# Updated: 17/04/2020
+# Updated: 30/03/2021
 # Author:  Alexander Tebiev
 # Website: https://github.com/beeyev
 #
@@ -21,9 +21,9 @@
 # backup 	- 	Only backup will be performed. (default value, if none provided)
 #
 # osupdate 	- 	The Script will install a new RouterOS if it is available.
-#				It will also create backups before and after update process.
-#				Email will be sent only if a new RouterOS is available.
-#				Change parameter `forceBackup` if you need the script to create backups every time when it runs.
+#				It will also create backups before and after update process (does not matter what value is set to `forceBackup`)
+#				Email will be sent only if a new RouterOS version is available.
+#				Change parameter `forceBackup` if you need the script to create backups every time when it runs (even when no updates).
 #
 # osnotify 	- 	The script will send email notification only (without backups) if a new RouterOS is available.
 #				Change parameter `forceBackup` if you need the script to create backups every time when it runs.
@@ -364,7 +364,7 @@ if ([:len [/system identity get name]] = 0 or [/system identity get name] = "Mik
 
 			if ($isOsNeedsToBeUpdated = true) do={
 				:set isOsNeedsToBeUpdated false;
-				:log warning "$SMP script is not goint to initialise update process due to inability to send backups to email."
+				:log warning "$SMP script is not going to initialise update process due to inability to send backups to email."
 			}
 		}
 	}
